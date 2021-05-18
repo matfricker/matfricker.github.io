@@ -1,8 +1,22 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders button with Reverse Spin text', () => {
+test('renders button with Start text', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Reverse Spin/i);
+  const linkElement = screen.getByText(/Start/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+test('renders button with Switch text', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Switch/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders button with Reset text', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Reset/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
