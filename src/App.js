@@ -4,6 +4,7 @@ import './App.css';
 function App() {
 
   function start() {
+    let isStop = false;
     const logo = document.querySelector('.logo');
     // start logo animation
     if (logo.classList.contains('to-left')) {
@@ -17,23 +18,45 @@ function App() {
     const logo = document.querySelector('.logo');
     // switch direction
     if (logo.classList.contains('to-right')) {
-      logo.classList.add('to-left');
-      logo.classList.remove('to-right');
+      spinLeft(logo);
     } else {
-      logo.classList.add('to-right');
-      logo.classList.remove('to-left');
+      spinRight(logo);
     }
   }
 
   function reset() {
     const logo = document.querySelector('.logo');
     // stop animation
-    if (logo.classList.contains('to-left')) {
-      logo.classList.remove('to-left');
+    spinStop(logo);
+  }
+
+  function spinRight(element) {
+    if (!element.classList.contains('to-right')) {
+      element.classList.add('to-right');
     }
 
-    if (logo.classList.contains('to-right')) {
-      logo.classList.remove('to-right');
+    if (element.classList.contains('to-left')) {
+      element.classList.remove('to-left');
+    }
+  }
+
+  function spinLeft(element) {
+    if (!element.classList.contains('to-left')) {
+      element.classList.add('to-left');
+    }
+
+    if (element.classList.contains('to-right')) {
+      element.classList.remove('to-right');
+    }
+  }
+
+  function spinStop(element) {
+    if (element.classList.contains('to-left')) {
+      element.classList.remove('to-left');
+    }
+
+    if (element.classList.contains('to-right')) {
+      element.classList.remove('to-right');
     }
   }
 
