@@ -3,6 +3,22 @@ import './App.css';
 
 function App() {
 
+  function fetchCustomers() {
+    fetch("https://api.fricker.io/customers")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          console.error(error);
+        }
+      )
+  }
+
   function start() {
     let isStop = false;
     const logo = document.querySelector('.logo');
@@ -67,6 +83,7 @@ function App() {
         <button id="btnStart" className="primary" onClick={start}>Start</button>
         <button id="btnSwitch" className="primary" onClick={switchDirection}>Switch</button>
         <button id="btnReset" className="primary" onClick={reset}>Reset</button>
+        <button id="btnFetchCustomers" className="primary" onClick={fetchCustomers}>Fetch Customers</button>
         <img src={logo} className="logo" alt="logo" />
       </header>
     </div>
