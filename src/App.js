@@ -1,11 +1,15 @@
-import logo from './logo.png';
-import './App.css';
-
 import { useState, useEffect } from 'react';
+
+import { CustomComponent } from './custom-component';
+
+import logo from './logo.png';
+import './app.css';
 
 function App() {
 
+  // Declare a new state variable
   const [customer, setCustomer] = useState([]);
+
 
   useEffect(() => {
     customers()
@@ -61,13 +65,14 @@ function App() {
       </section>
 
       <section className="animation">
-        <button id="btnStart" className="primary" onClick={start}>Start</button>
-        <button id="btnReset" className="primary" onClick={reset}>Reset</button>
+        <button type="button" id="btnStart" className="primary" onClick={start}>Start</button>
+        <button type="button" id="btnReset" className="primary" onClick={reset}>Reset</button>
         <img src={logo} className="logo" alt="logo" />
       </section>
+
+      <CustomComponent name="Okkie Dokkie" />
     </div>
   );
-
 }
 
 export default App;
