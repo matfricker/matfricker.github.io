@@ -29,18 +29,26 @@
 }
 
 .content {
+  width: 150px;
   margin: 20px auto;
-  width: 15%;
   padding: 10px;
-
-  text-align: left;
-
-  border-radius: 1rem;
-  background: linear-gradient(-90deg, #ff8234,  #ff6347, #ff4500);
+  text-align: center;
+  background: rgba(230, 230, 230, 0.1);
+  border-radius: 3px;
 }
 
-.content ol li {
-  color: #ffffff;
+.content div {
+  color: #36454F;
+  padding: 3px;
+}
+
+.content h2 {
+  display: inline-block;
+  border: solid 1px #36454F;
+  border-radius: 100px;
+  padding: 9px 10px 11px;
+  margin-top: 20px;
+  line-height: 26px;
 }
 
 @keyframes logo-spin-left {
@@ -91,4 +99,11 @@ button:focus {
 
 button.clicked {
   background-color: #ff4500;
+}
+
+footer {
+  font-size: x-small;
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }

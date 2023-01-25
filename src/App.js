@@ -10,7 +10,6 @@ function App() {
   // Declare a new state variable
   const [customer, setCustomer] = useState([]);
 
-
   useEffect(() => {
     customers()
   }, []);
@@ -51,17 +50,17 @@ function App() {
       element.classList.remove('to-right');
     }
   }
+  
 
   return (
     <div className="app">
       <section className="content">
-        <ol>
-          {customer.map((data) => {
-            return (
-              <li>{data.firstName} {data.lastName}</li>
-            )
-          })}
-        </ol>
+        {customer.map((data) => {
+          return (
+            <div key={data.customerId}>{data.firstName} {data.lastName}</div>
+          )
+        })}
+        <h2>{customer.length}</h2>
       </section>
 
       <section className="animation">
@@ -71,6 +70,7 @@ function App() {
       </section>
 
       <CustomComponent name="Okkie Dokkie" />
+      <footer>Build in React | {new Date().getFullYear()}</footer>
     </div>
   );
 }
