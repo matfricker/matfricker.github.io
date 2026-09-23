@@ -68,7 +68,7 @@ function App() {
         <img src={logo.src} className="logo" alt="logo" />
       </section>
 
-      <CustomComponent name="Okkie Dokkie" />
+      <CustomComponent name="Okkie Dokkie [.]" />
       <footer>Build in React | {new Date().getFullYear()}</footer>
     </div>
   );
