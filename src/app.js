@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 
 import { CustomComponent } from './custom-component';
 
-import logo from './logo.png';
-import './app.css';
+import logo from '../public/logo.png';
+
+import './index.css';
 
 function App() {
 
@@ -12,15 +13,14 @@ function App() {
 
   useEffect(() => {
     customers()
+        .then((res) => {
+          console.log(res);
+        });
   }, []);
 
   const customers = async () => {
-    const response = 
-      await fetch("https://api.fricker.io/customers", {
-        headers: {
-          'ClientApiKey': 'oXYG6Ub7ObGejWkbvCqwO7SlM6iZM3RewzwZ3i4gWlQK3zZyTPdoE4PUc9HQ'
-        }
-      });
+    const response =
+      await fetch("https://api.fricker.io/customers");
 
     setCustomer(await response.json());
   }
@@ -50,7 +50,6 @@ function App() {
       element.classList.remove('to-right');
     }
   }
-  
 
   return (
     <div className="app">
@@ -66,7 +65,7 @@ function App() {
       <section className="animation">
         <button type="button" id="btnStart" className="primary" onClick={start}>Start</button>
         <button type="button" id="btnReset" className="primary" onClick={reset}>Reset</button>
-        <img src={logo} className="logo" alt="logo" />
+        <img src={logo.src} className="logo" alt="logo" />
       </section>
 
       <CustomComponent name="Okkie Dokkie" />
@@ -76,3 +75,8 @@ function App() {
 }
 
 export default App;
+export class customer {
+  customerId;
+  firstName;
+  lastName;
+}
