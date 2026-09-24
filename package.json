@@ -10,13 +10,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve@latest ./build",
-    "deploy": "gh-pages -d build"
+    "start": "next dev"
   },
   "devDependencies": {
     "@types/node": "26.6.2",
     "@types/react": "19.3.0",
-    "gh-pages": "5.0.0",
     "typescript": "7.0.2"
   }
 }
