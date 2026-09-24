@@ -1,4 +1,4 @@
-# Project - converted to next.js (09.2026)
+# Now using next.js
 
 Project migrated a Create React App (CRA) to Next.js.
 
