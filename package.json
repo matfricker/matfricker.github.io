@@ -9,8 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next dev"
+    "build": "next build"
   },
   "devDependencies": {
     "@types/node": "26.6.2",

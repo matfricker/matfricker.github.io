@@ -1,6 +1,8 @@
+.eslintcache
+.next
+.idea
+.DS_Store
+
 build
 node_modules
-.eslintcache
-
-.next
 next-env.d.ts
