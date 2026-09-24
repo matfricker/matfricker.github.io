@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { CustomComponent } from './custom-component';
 
@@ -11,16 +11,8 @@ function App() {
   // Declare a new state variable
   const [customer, setCustomer] = useState([]);
 
-  useEffect(() => {
-    customers()
-        .then((res) => {
-          console.log(res);
-        });
-  }, []);
-
-  const customers = async () => {
-    const response =
-      await fetch("https://api.fricker.io/customers");
+  async function getData() {
+    const response = await fetch("https://api.fricker.io/customers");
 
     setCustomer(await response.json());
   }
@@ -53,6 +45,15 @@ function App() {
 
   return (
     <div className="app">
+      <section className="animation">
+        <button type="button" id="btnStart" className="primary" onClick={start}>Start</button>
+        <button type="button" id="btnReset" className="primary" onClick={reset}>Reset</button>
+        <img src={logo.src} className="logo" alt="logo" />
+      </section>
+
+      <CustomComponent name="Custom Component" />
+
+      <button type="button" id="btnGetData" className="primary" onClick={getData}>Get Data</button>
       <section className="content">
         {customer.map((data) => {
           return (
@@ -62,14 +63,7 @@ function App() {
         <h2>{customer.length}</h2>
       </section>
 
-      <section className="animation">
-        <button type="button" id="btnStart" className="primary" onClick={start}>Start</button>
-        <button type="button" id="btnReset" className="primary" onClick={reset}>Reset</button>
-        <img src={logo.src} className="logo" alt="logo" />
-      </section>
-
-      <CustomComponent name="Custom Component" />
-      <footer>Build in React | {new Date().getFullYear()}</footer>
+      <footer>Build in Nextjs | {new Date().getFullYear()}</footer>
     </div>
   );
 }
